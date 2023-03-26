@@ -2,14 +2,14 @@
 
 ### Installation Instructions
 
-1. Create and activate a virtual environment.
+Create and activate a virtual environment.
 
 ```bash
 conda create -n plotnet python=3.9
 conda activate plotnet
 ```
 
-2. Install the package.
+Install the package.
 
 ```bash
 pip install -r requirements.txt
