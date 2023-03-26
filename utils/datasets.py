@@ -6,14 +6,14 @@ import numpy as np
 
 NUM_SAMPLES_CLASSIFY = 500
 NUM_SAMPLES_REGRESS = 1200
-INPUT = {
+TYPE_OF_FEATURES = {
     "x": {"f": lambda x: x[0], "label": "X_1"},
     "y": {"f": lambda x: x[1], "label": "X_2"},
-    "xSquared": {"f": lambda x: x[0] * x[0], "label": "X_1^2"},
-    "ySquared": {"f": lambda x: x[1] * x[1], "label": "X_2^2"},
-    "xTimesY": {"f": lambda x: x[0] * x[1], "label": "X_1X_2"},
-    "sinX": {"f": lambda x: math.sin(x[0]), "label": "sin(X_1)"},
-    "sinY": {"f": lambda x: math.sin(x[1]), "label": "sin(X_2)"}
+    "x squared": {"f": lambda x: x[0] * x[0], "label": "X_1^2"},
+    "y squared": {"f": lambda x: x[1] * x[1], "label": "X_2^2"},
+    "x times y": {"f": lambda x: x[0] * x[1], "label": "X_1X_2"},
+    "sin x": {"f": lambda x: math.sin(x[0]), "label": "sin(X_1)"},
+    "sin y": {"f": lambda x: math.sin(x[1]), "label": "sin(X_2)"}
 }
 
 
@@ -217,16 +217,25 @@ def classification_xor_generator(num_samples, noise=0):
         elif y <= 0:
             y += -padding
 
-        noiseX = rand_uniform(-5, 5) * noise
-        noiseY = rand_uniform(-5, 5) * noise
-        label = get_xor_label([x + noiseX, y + noiseY])
+        noise_x = rand_uniform(-5, 5) * noise
+        noise_y = rand_uniform(-5, 5) * noise
+        label = get_xor_label([x + noise_x, y + noise_y])
         points.append([x, y, label])
 
     return points
 
 
 def generate_data(num_samples, generator, features, noise, perc_train, seed=2023):
-    ''' Generates a data set. '''
+    '''
+    Generates a data set.
+    Args:
+        num_samples (int): Number of samples to generate.
+        generator (func): Function that generates the data.
+        features (list): List of strings representing features to use.
+        noise (int): Noise level.
+        perc_train (float): Percentage of data to use for training.
+        seed (int): Seed for random number generator.
+    '''
     if seed:
         random.seed(seed)
 
@@ -242,7 +251,7 @@ def generate_data(num_samples, generator, features, noise, perc_train, seed=2023
     test_transformed_feature = []
 
     for feature in features:
-        func = INPUT[feature]["f"]
+        func = TYPE_OF_FEATURES[feature]["f"]
         temp1 = np.apply_along_axis(func, 1, train_feature)
         temp2 = np.apply_along_axis(func, 1, test_feature)
         train_transformed_feature.append(temp1)
