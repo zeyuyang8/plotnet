@@ -1,10 +1,16 @@
 ## PlotNet
 
 ### Installation Instructions
-Create a virtual environment
-```
+
+1. Create and activate a virtual environment.
+
+```bash
 conda create -n plotnet python=3.9
 conda activate plotnet
-pip install ipykernel
+```
+
+1. Install the package.
+
+```bash
 pip install -r requirements.txt
 ```
