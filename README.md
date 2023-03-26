@@ -2,7 +2,7 @@
 
 ## Overview
 
-PlotNet is a Python package for plotting multi-layer perceptron architectures.
+This project, inspired by the [TensorFlow Playground](https://playground.tensorflow.org/), is about visualizing the architecture of multi-layer perceptrons.
 
 ## Installation Instructions
 

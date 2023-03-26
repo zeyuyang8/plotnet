@@ -229,12 +229,18 @@ def generate_data(num_samples, generator, features, noise, perc_train, seed=2023
     '''
     Generates a data set.
     Args:
-        num_samples (int): Number of samples to generate.
-        generator (func): Function that generates the data.
-        features (list): List of strings representing features to use.
-        noise (int): Noise level.
-        perc_train (float): Percentage of data to use for training.
-        seed (int): Seed for random number generator.
+        num_samples - int of number of samples to generate.
+        generator - function that generates the data.
+        features - list of strings representing features to use.
+        noise - int of noise level.
+        perc_train - float of percentage of data to use for training.
+        seed - int of seed for random number generator.
+    Returns a tuple of two tuples, where the first tuple is the training data,
+    and the second tuple is the testing data. Each tuple contains two numpy arrays.
+        train_feature - numpy array of training features.
+        train_label - numpy array of training labels.
+        test_feature - numpy array of testing features.
+        test_label - numpy array of testing labels.
     '''
     if seed:
         random.seed(seed)
