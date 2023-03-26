@@ -9,7 +9,7 @@ conda create -n plotnet python=3.9
 conda activate plotnet
 ```
 
-1. Install the package.
+2. Install the package.
 
 ```bash
 pip install -r requirements.txt
