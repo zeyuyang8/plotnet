@@ -1,6 +1,6 @@
 # PlotNet
 
-PlotNet, inspired by the [TensorFlow Playground](https://playground.tensorflow.org/), allows for visualizing the structure of multi-layer perceptrons. The figure below shows an example plot of a multi-layer perceptron.
+PlotNet, inspired by the [TensorFlow Playground](https://playground.tensorflow.org/), allows for visualizing the structure of multi-layer perceptrons. The figure below shows an example plot.
 
 ![sample](docs/sample.png)
 
