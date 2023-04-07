@@ -1,3 +1,6 @@
+''' Source: https://github.com/tensorflow/playground/blob/master/src/dataset.ts '''
+
+
 import random
 import math
 from scipy.interpolate import interp1d
@@ -225,12 +228,22 @@ def classification_xor_generator(num_samples, noise=0):
     return points
 
 
-def generate_data(num_samples, generator, features, noise, perc_train, seed=2023):
+MAPPING = {
+    "reg_plane": regression_plane_generator,
+    "reg_gauss": regression_gaussian_generator,
+    "class_gauss": classification_gaussian_generator,
+    "spiral": classification_spiral_generator,
+    "circle": classification_circle_generator,
+    "xor": classification_xor_generator
+}
+
+
+def generate_data(num_samples, choice, features, noise, perc_train, seed=2023):
     '''
     Generates a data set.
     Args:
         num_samples - int of number of samples to generate.
-        generator - function that generates the data.
+        choice - choice of function that generates the data.
         features - list of strings representing features to use.
         noise - int of noise level.
         perc_train - float of percentage of data to use for training.
@@ -245,6 +258,7 @@ def generate_data(num_samples, generator, features, noise, perc_train, seed=2023
     if seed:
         random.seed(seed)
 
+    generator = MAPPING[choice]
     data = generator(num_samples, noise)
     shuffle(data)
 

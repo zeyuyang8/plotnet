@@ -1,12 +1,10 @@
 import plotly.graph_objects as go
-
-LABEL_RANGE = [-1, 1]
-X_RANGE = [-6, 6]
-Y_RANGE = [-6, 6]
-FIG_SIZE = [500, 500]  # [height, width]
+from .constants import LABEL_RANGE, X_RANGE, Y_RANGE
+from .constants import FIG_SIZE, COLORSCALE
+from .constants import THICKNESS
 
 
-def plot_clusters(data, title, colorscale='RdBu'):
+def plot_clusters(data, title, colorscale=COLORSCALE):
     """
     Plot clusters by plotly.
     Input:
@@ -27,7 +25,7 @@ def plot_clusters(data, title, colorscale='RdBu'):
             cmin=LABEL_RANGE[0],
             cmax=LABEL_RANGE[1],
             colorscale=colorscale,
-            colorbar=dict(thickness=10))
+            colorbar=dict(thickness=THICKNESS))
         ),
         layout_yaxis_range=Y_RANGE,
         layout_xaxis_range=X_RANGE)

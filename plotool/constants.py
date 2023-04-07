@@ -1,0 +1,10 @@
+LABEL_RANGE = [-1, 1]
+X_RANGE = [-6, 6]
+Y_RANGE = [-6, 6]
+FIG_SIZE = [500, 500]  # [height, width]
+COLORSCALE = 'RdBu'
+OPACITY = 0.5
+THICKNESS = 10
+RELATIVE_SIZE = 140
+LINE_WIDTH = 1
+X_SHIFT = -20
