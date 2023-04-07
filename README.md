@@ -8,19 +8,5 @@ Here is an example of animation of the training process of a multi-layer percept
 
 [Neural network architeture animation - spiral](https://www.dropbox.com/s/rcqvnbi2thicmd8/Neural%20network%20architeture%20animation%20-%20spiral.html?dl=0)
 
-## Installation instructions
+The corresponding notebook can be accessed [here](https://colab.research.google.com/drive/1llqNm1V5Z1GrqCLTmdsMk3ZKgdvcpcWD?usp=sharing) and run in Google Colab.
 
-Create and activate a virtual environment.
-
-```bash
-conda create -n plotnet python=3.9
-conda activate plotnet
-```
-
-Install the requirments.
-
-```bash
-pip install -r requirements.txt
-```
-
-## Colab notebook
